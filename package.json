@@ -9,6 +9,7 @@
   },
   "type": "module",
   "devDependencies": {
+    "@faker-js/faker": "^9.6.0",
     "@rocketseat/eslint-config": "^2.2.2",
     "@types/bun": "latest",
     "eslint": "8.39.0",
