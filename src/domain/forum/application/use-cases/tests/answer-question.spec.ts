@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import type { AnswersRepository } from '../../../repositories/answers-repository'
-import type { Answer } from '../../entities/answer'
+import type { Answer } from '../../../enterprise/entities/answer'
+import type { AnswersRepository } from '../../repositories/answers-repository'
 import { AnswerQuestionUseCase } from '../answer-question'
 
 const fakeAnswersRepository: AnswersRepository = {
