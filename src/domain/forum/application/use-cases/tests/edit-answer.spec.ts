@@ -49,6 +49,6 @@ describe('Edit Answer', () => {
         content: 'Conteudo teste',
         answerId: newAnswer.id.toValue(),
       })
-    ).rejects.toThrow(Error)
+    ).rejects.toThrow(Error) 
   })
 })
