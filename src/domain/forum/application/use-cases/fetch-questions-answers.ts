@@ -12,7 +12,7 @@ interface FetchQuestionAnswersUseCaseResponse {
 export class FetchQuestionAnswersUseCase {
   constructor(private answerRepository: AnswersRepository) {}
 
-  async exectue({
+  async execute({
     questionId,
     page,
   }: FetchQuestionAnswersUseCaseRequest): Promise<FetchQuestionAnswersUseCaseResponse> {

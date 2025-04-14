@@ -11,7 +11,7 @@ interface GetQuestionBySlugUseCaseResponse {
 export class GetQuestionBySlugUseCase {
   constructor(private questionRepository: QuestionsRepository) {}
 
-  async exectue({
+  async execute({
     slug,
   }: GetQuestionBySlugUseCaseRequest): Promise<GetQuestionBySlugUseCaseResponse> {
     const question = await this.questionRepository.findBySlug(slug)

@@ -18,12 +18,12 @@ describe('Edit Question', () => {
       {
         authorId: new UniqueEntityID('author-1'),
       },
-      new UniqueEntityID('question-1'),
+      new UniqueEntityID('question-1')
     )
 
     await inMemoryQuestionsRepository.create(newQuestion)
 
-    await sut.exectue({
+    await sut.execute({
       authorId: 'author-1',
       title: 'Pergunta teste',
       content: 'Conteudo teste',
@@ -41,18 +41,18 @@ describe('Edit Question', () => {
       {
         authorId: new UniqueEntityID('auhtor-1'),
       },
-      new UniqueEntityID('question-2'),
+      new UniqueEntityID('question-2')
     )
 
     await inMemoryQuestionsRepository.create(newQuestion)
 
     await expect(
-      sut.exectue({
+      sut.execute({
         authorId: 'author-2',
         title: 'Pergunta teste',
         content: 'Conteudo teste',
         questionId: newQuestion.id.toValue(),
-      }),
+      })
     ).rejects.toThrow(Error)
   })
 })

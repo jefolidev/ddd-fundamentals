@@ -14,7 +14,7 @@ interface EditQuestionUseCaseResponse {
 export class EditQuestionUseCase {
   constructor(private questionRepository: QuestionsRepository) {}
 
-  async exectue({
+  async execute({
     content,
     questionId,
     title,

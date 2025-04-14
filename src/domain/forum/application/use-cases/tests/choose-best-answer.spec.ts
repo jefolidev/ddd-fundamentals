@@ -17,7 +17,7 @@ describe('Choose Question Best Answer', () => {
     inMemoryAnswersRepository = new InMemoryAnswersRepository()
     sut = new ChooseBestQuestionUseCase(
       inMemoryQuestionRepository,
-      inMemoryAnswersRepository,
+      inMemoryAnswersRepository
     )
   })
 
@@ -30,7 +30,7 @@ describe('Choose Question Best Answer', () => {
     await inMemoryQuestionRepository.create(question)
     await inMemoryAnswersRepository.create(answer)
 
-    await sut.exectue({
+    await sut.execute({
       answerId: answer.id.toString(),
       authorId: question.authorId.toString(),
     })
@@ -51,10 +51,10 @@ describe('Choose Question Best Answer', () => {
     await inMemoryAnswersRepository.create(answer)
 
     await expect(
-      sut.exectue({
+      sut.execute({
         answerId: answer.id.toString(),
         authorId: 'author-1',
-      }),
+      })
     ).rejects.toBeInstanceOf(Error)
   })
 })

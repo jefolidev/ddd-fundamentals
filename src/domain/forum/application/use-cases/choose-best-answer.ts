@@ -14,10 +14,10 @@ interface ChooseBestQuestionUseCaseResponse {
 export class ChooseBestQuestionUseCase {
   constructor(
     private questionRepository: QuestionsRepository,
-    private answersRepository: AnswersRepository,
+    private answersRepository: AnswersRepository
   ) {}
 
-  async exectue({
+  async execute({
     answerId,
     authorId,
   }: ChooseBestQuestionUseCaseRequest): Promise<ChooseBestQuestionUseCaseResponse> {
@@ -26,7 +26,7 @@ export class ChooseBestQuestionUseCase {
     if (!answer) throw new Error('Answer not found.')
 
     const question = await this.questionRepository.findById(
-      answer.questionId.toString(),
+      answer.questionId.toString()
     )
 
     if (!question) throw new Error('Question not found.')

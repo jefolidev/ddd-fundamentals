@@ -25,7 +25,7 @@ describe('Fetch Question Answer', () => {
       makeAnswer({ questionId: new UniqueEntityID('question-1') })
     )
 
-    const { answers } = await sut.exectue({
+    const { answers } = await sut.execute({
       questionId: 'question-1',
       page: 1,
     })
@@ -39,7 +39,7 @@ describe('Fetch Question Answer', () => {
         makeAnswer({ questionId: new UniqueEntityID('question-1') })
       )
     }
-    const { answers } = await sut.exectue({
+    const { answers } = await sut.execute({
       questionId: 'question-1',
       page: 2,
     })

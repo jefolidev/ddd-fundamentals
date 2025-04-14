@@ -15,7 +15,7 @@ interface AnswerQuestionUseCaseResponse {
 export class AnswerQuestionUseCase {
   constructor(private answersRepository: AnswersRepository) {}
 
-  async exectue({
+  async execute({
     instructorId,
     questionId,
     content,

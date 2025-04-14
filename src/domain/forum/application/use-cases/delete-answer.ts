@@ -9,7 +9,7 @@ interface DeleteAnswerUseCaseResponse {}
 export class DeleteAnswerUseCase {
   constructor(private answerRepository: AnswersRepository) {}
 
-  async exectue({
+  async execute({
     answerId,
     authorId,
   }: DeleteAnswerUseCaseRequest): Promise<DeleteAnswerUseCaseResponse> {

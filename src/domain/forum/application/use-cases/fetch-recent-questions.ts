@@ -11,7 +11,7 @@ interface FetchRecentQuestionsUseCaseResponse {
 export class FetchRecentQuestionsUseCase {
   constructor(private questionRepository: QuestionsRepository) {}
 
-  async exectue({
+  async execute({
     page,
   }: FetchRecentQuestionsUseCaseRequest): Promise<FetchRecentQuestionsUseCaseResponse> {
     const questions = await this.questionRepository.findManyRecent({ page })

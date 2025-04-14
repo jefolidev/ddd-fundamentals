@@ -18,7 +18,7 @@ export class CommentOnQuestionUseCase {
     private questionCommnetsRepository: QuestionsCommentRepository
   ) {}
 
-  async exectue({
+  async execute({
     authorId,
     questionId,
     content,

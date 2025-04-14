@@ -13,7 +13,7 @@ interface EditAnswerUseCaseResponse {
 export class EditAnswerUseCase {
   constructor(private answerRepository: AnswersRepository) {}
 
-  async exectue({
+  async execute({
     content,
     answerId,
     authorId,

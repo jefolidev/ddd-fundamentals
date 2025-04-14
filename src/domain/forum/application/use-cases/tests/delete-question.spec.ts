@@ -18,12 +18,12 @@ describe('Delete Question', () => {
       {
         authorId: new UniqueEntityID('author-1'),
       },
-      new UniqueEntityID('question-1'),
+      new UniqueEntityID('question-1')
     )
 
     await inMemoryQuestionsRepository.create(newQuestion)
 
-    await sut.exectue({
+    await sut.execute({
       questionId: 'question-1',
       authorId: 'author-1',
     })
@@ -36,16 +36,16 @@ describe('Delete Question', () => {
       {
         authorId: new UniqueEntityID('author-1'),
       },
-      new UniqueEntityID('question-1'),
+      new UniqueEntityID('question-1')
     )
 
     await inMemoryQuestionsRepository.create(newQuestion)
 
     await expect(
-      sut.exectue({
+      sut.execute({
         questionId: 'question-1',
         authorId: 'author-2',
-      }),
+      })
     ).rejects.toThrow(Error) // Forma correta de testar exceções assíncronas
   })
 })

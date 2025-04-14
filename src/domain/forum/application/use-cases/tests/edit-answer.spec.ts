@@ -22,7 +22,7 @@ describe('Edit Answer', () => {
 
     await inMemoryAnswersRepository.create(newAnswer)
 
-    await sut.exectue({
+    await sut.execute({
       authorId: 'author-1',
       content: 'Conteudo teste',
       answerId: newAnswer.id.toValue(),
@@ -44,11 +44,11 @@ describe('Edit Answer', () => {
     await inMemoryAnswersRepository.create(newAnswer)
 
     await expect(
-      sut.exectue({
+      sut.execute({
         authorId: 'author-2',
         content: 'Conteudo teste',
         answerId: newAnswer.id.toValue(),
       })
-    ).rejects.toThrow(Error) 
+    ).rejects.toThrow(Error)
   })
 })
