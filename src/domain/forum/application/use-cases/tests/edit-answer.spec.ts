@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { makeAnswer } from '../../../../../../test/factories/make-answer'
 import { InMemoryAnswersRepository } from '../../../../../../test/repositories/in-memory-answers-repository'
@@ -18,7 +17,7 @@ describe('Edit Answer', () => {
       {
         authorId: new UniqueEntityID('author-1'),
       },
-      new UniqueEntityID('answer-1'),
+      new UniqueEntityID('answer-1')
     )
 
     await inMemoryAnswersRepository.create(newAnswer)
@@ -39,7 +38,7 @@ describe('Edit Answer', () => {
       {
         authorId: new UniqueEntityID('auhtor-1'),
       },
-      new UniqueEntityID('answer-2'),
+      new UniqueEntityID('answer-2')
     )
 
     await inMemoryAnswersRepository.create(newAnswer)
@@ -49,7 +48,7 @@ describe('Edit Answer', () => {
         authorId: 'author-2',
         content: 'Conteudo teste',
         answerId: newAnswer.id.toValue(),
-      }),
+      })
     ).rejects.toThrow(Error)
   })
 })

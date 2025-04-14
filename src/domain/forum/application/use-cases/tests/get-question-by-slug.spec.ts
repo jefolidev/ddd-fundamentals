@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Slug } from '@/domain/forum/enterprise/entities/value-objetcs/slug'
 import { makeQuestion } from '../../../../../../test/factories/make-question'
 import { InMemoryQuestionsRepository } from '../../../../../../test/repositories/in-memory-questions-repository'
