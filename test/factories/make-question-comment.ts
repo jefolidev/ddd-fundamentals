@@ -1,7 +1,7 @@
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import {
   QuestionComment,
-  QuestionCommentProps,
+  type QuestionCommentProps,
 } from '@/domain/forum/enterprise/entities/question-comment'
 
 import { faker } from '@faker-js/faker'
