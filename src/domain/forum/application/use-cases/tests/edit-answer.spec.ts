@@ -12,9 +12,11 @@ let sut: EditAnswerUseCase // System Under Test
 
 describe('Edit Answer', () => {
   beforeEach(() => {
-    inMemoryAnswersRepository = new InMemoryAnswersRepository()
     inMemoryAnswersAttachmentRepository =
       new InMemoryAnswerAttachmentRepository()
+    inMemoryAnswersRepository = new InMemoryAnswersRepository(
+      inMemoryAnswersAttachmentRepository
+    )
     sut = new EditAnswerUseCase(
       inMemoryAnswersRepository,
       inMemoryAnswersAttachmentRepository
