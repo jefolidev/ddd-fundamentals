@@ -1,8 +1,10 @@
 import { makeAnswer } from '../../../../../../test/factories/make-answer'
+import { InMemoryAnswerAttachmentRepository } from '../../../../../../test/repositories/in-memory-answer-attachment-repository'
 import { InMemoryAnswerCommentsRepository } from '../../../../../../test/repositories/in-memory-answer-comments-repository'
 import { InMemoryAnswersRepository } from '../../../../../../test/repositories/in-memory-answers-repository'
 import { CommentOnAnswerUseCase } from '../comment-on-answer'
 
+let inMemoryAnswerAttachmentRepository: InMemoryAnswerAttachmentRepository
 let inMemoryAnswerRepository: InMemoryAnswersRepository
 let inMemoryAnswerCommentsRepository: InMemoryAnswerCommentsRepository
 
@@ -10,7 +12,11 @@ let sut: CommentOnAnswerUseCase // System Under Test
 
 describe('Comment on Answer', () => {
   beforeEach(() => {
-    inMemoryAnswerRepository = new InMemoryAnswersRepository()
+    inMemoryAnswerAttachmentRepository =
+      new InMemoryAnswerAttachmentRepository()
+    inMemoryAnswerRepository = new InMemoryAnswersRepository(
+      inMemoryAnswerAttachmentRepository
+    )
     inMemoryAnswerCommentsRepository = new InMemoryAnswerCommentsRepository()
     sut = new CommentOnAnswerUseCase(
       inMemoryAnswerRepository,
