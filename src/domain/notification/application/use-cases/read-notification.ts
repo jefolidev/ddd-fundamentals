@@ -1,5 +1,5 @@
 import { type Either, left, right } from '@/core/either'
-import type { NotAllowedError } from '@/domain/forum/application/use-cases/errors/not-allowed-error'
+import { NotAllowedError } from '@/domain/forum/application/use-cases/errors/not-allowed-error'
 import { ResourceNotFoundError } from '@/domain/forum/application/use-cases/errors/resourse-not-found-error'
 import { Notification } from '../../enterprise/entities/notification'
 import type { NotificationsRepository } from '../repositories/notification-repository'
@@ -30,7 +30,7 @@ export class ReadNotificationUseCase {
     }
 
     if (recipientId !== notification.recipientId.toString()) {
-      return left(new ResourceNotFoundError())
+      return left(new NotAllowedError())
     }
 
     notification.read()

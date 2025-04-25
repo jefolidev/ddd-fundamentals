@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
+import { NotAllowedError } from '@/domain/forum/application/use-cases/errors/not-allowed-error'
 import { makeNotification } from '../../../../../../test/factories/make-notification'
 import { InMemorySendNotificationRepository } from '../../../../../../test/repositories/in-memory-send-notification-repository'
 import { ReadNotificationUseCase } from '../read-notification'
@@ -28,5 +30,21 @@ describe('Read Notification', () => {
     expect(inMemoryNotificationsRepository.items[0].readAt).toEqual(
       expect.any(Date)
     )
+  })
+
+  it('should not be able to read a notification from another user', async () => {
+    const notification = makeNotification({
+      recipientId: new UniqueEntityID('recipe-1'),
+    })
+
+    await inMemoryNotificationsRepository.create(notification)
+
+    const result = await sut.execute({
+      notificationId: notification.id.toString(),
+      recipientId: 'recipient-2',
+    })
+
+    expect(result.isLeft()).toBe(true)
+    expect(result.value).toBeInstanceOf(NotAllowedError)
   })
 })
